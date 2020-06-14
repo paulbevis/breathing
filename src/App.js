@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import BreatheUp from './screens/breathe-up'
+import O2Tables from './screens/o2-tables'
+import Co2Tables from './screens/co2-tables'
+import Home from './screens/home'
 
-export default App;
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path={'/'} component={Home} />
+      <Route path={`/breathe-up`} component={BreatheUp} />
+      <Route path={'/co2-tables'} component={Co2Tables} />
+      <Route path={'/o2-tables'} component={O2Tables} />
+    </Switch>
+  </Router>
+)
+
+export default App
